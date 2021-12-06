@@ -6,7 +6,7 @@ from account.models import CustomUser
 class UserSerializers(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ["first_name", "last_name", "email", "data_joined", "user_name", "address", "password", "is_active", "id"]
+        fields = ["first_name","last_name","email","date_joined","user_name","address","password","is_active","id"]
         
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=300)
