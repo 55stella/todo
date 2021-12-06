@@ -32,7 +32,8 @@ def todo(request):
                 serializer.validated_data.pop('user')
                 
             object = Todos.objects.create(**serializer.validated_data, user=request.user)#here we are using unpaking to create data. using key word arguments
-            serializer = TodoSerializers(object)# this is converting the data to a querrry set so that we can store it in our databe
+            
+            serializer = TodoSerializers(object)# this is converting the data to a querrry set so that we can store it in our database. here we are deserializing the objects
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
         else:
@@ -74,7 +75,7 @@ def todo_detail(request, todo_id):
      raise PermissionDenied(detail='You do not have permission to perform this action')
 
     if request.method == 'GET':
-        serializer = TodoSerializers(obj)
+        serializer = TodoSerializers(obj)#serializing the objects fetched from the database to be displayed in jason format.
         data = {
             "message":"sucess",
             "data":serializer.data
