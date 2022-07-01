@@ -48,11 +48,12 @@ INSTALLED_APPS = [
     'rest_framework',
     'account',
     'drf_yasg',
-    'coreapi'
-    'corsheaders'
+    'coreapi',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
+    'corsheaders.middleware.CorsMiddleware'
     'django.middleware.security.SecurityMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',#here we added whitenoise because of our static files
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -61,7 +62,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'todos.urls'
@@ -159,7 +159,6 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.customUser'
 
 EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
-CORS_ORIGIN_ALLOW_ALL = True
 
 EMAIL_HOST=os.getenv('EMAIL_HOST')
 EMAIL_PORT=2525
@@ -167,4 +166,5 @@ EMAIL_HOST_USER=os.getenv('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD=os.getenv('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS=True
 
+CORS_ORIGIN_ALLOW_ALL = True
 
