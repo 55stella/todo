@@ -14,8 +14,8 @@ from django.utils import timezone
 
 
 @swagger_auto_schema(methods=['POST'], request_body=TodoSerializers())
-@authentication_classes([BasicAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([BasicAuthentication])
+# @permission_classes([IsAuthenticated])
 @api_view(['GET', 'POST'])
 def todo(request):
     if request.method == 'GET':
