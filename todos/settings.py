@@ -45,11 +45,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'todosapp', 
-    'corsheaders',
     'rest_framework',
     'account',
     'drf_yasg',
     'coreapi',
+    'corsheaders',
     
 ]
 
