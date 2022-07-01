@@ -266,8 +266,8 @@ def profile(request):
 
 @swagger_auto_schema(methods=['DELETE'], request_body=UserSerializers())
 @api_view(['GET', 'DELETE'])
-@authentication_classes([BasicAuthentication])
-@permission_classes([IsAdminUser])
+# @authentication_classes([BasicAuthentication])
+# @permission_classes([IsAdminUser])
 def user_detail(request, user_id):
     """"""
     
