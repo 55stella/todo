@@ -76,7 +76,7 @@ def change_password(request):
          if serializer.is_valid():
              old_password = serializer.validated_data['old_password']
              if check_password(old_password, user.password):#this check_password function tries to check two passwords if they are the same
-
+                  #user.password will try to get the password belonging to that particular userv mayb saved somewhere innthe system.
                  user.set_password(serializer.validated_data['new_password'])#the set password function tries to replace the old password with the new one
 
                  user.save()

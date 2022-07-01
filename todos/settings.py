@@ -32,7 +32,7 @@ SECRET_KEY = os.getenv('DJANGO_SECRETE')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['stella-todosapp.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition

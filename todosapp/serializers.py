@@ -6,6 +6,7 @@ from .models import Todos
 
 class TodoSerializers(serializers.ModelSerializer):
     class Meta:
+        ## class Meta is giving more information about the the model
         model = Todos
         fields= '__all__'
 

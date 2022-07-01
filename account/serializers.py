@@ -14,7 +14,7 @@ class LoginSerializer(serializers.Serializer):
 
 
 class ChangePasswordSerializer(serializers.Serializer):
-      old_password = serializers.CharField(max_length=500)
+      old_password = serializers.CharField(max_length=500)#here we are creating serializers from scratch. these serializers doesnt have a model that it comes with.
       new_password = serializers.CharField(max_length=500)
       re_password = serializers.CharField(max_length=500)
 
