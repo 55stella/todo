@@ -26,14 +26,16 @@ def todo(request):
     
     elif request.method == 'POST':
         serializer =  TodoSerializers(data=request.data)
-        if serializer.is_valid():
+        if serializer.is_valid():#checking to know if the entries in the serializer .is_valid()
             
             if 'user' in serializer.validated_data.keys():
                 serializer.validated_data.pop('user')
+                print(serializer.validated_data)
                 
             object = Todos.objects.create(**serializer.validated_data, user=request.user)#here we are using unpaking to create data. using key word arguments
-            
-            serializer = TodoSerializers(object)# this is converting the data to a querrry set so that we can store it in our database. here we are deserializing the objects
+            #in creating a new todo, its supposed to be user=request.user, activity= cooking. using **serializer.validorated_data would create a bunch of key -word
+            #argument.i.e it would create a dictionary filled with keyword arguments.
+            serializer = TodoSerializers(object)# serializing the data.
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         
         else:
@@ -68,7 +70,7 @@ def todo_detail(request, todo_id):
     except Todos.DoesNotExist:
             error ={
                  "message": "failed",
-                 "error":f"book with id{todo_id} does not exist"
+                 "error":f"todo with id{todo_id} does not exist"
             }
             return  Response(error, status=status.HTTP_400_BAD_REQUEST) 
     if obj.user != request.user:
@@ -192,7 +194,7 @@ def future_list(request):
                 'status'  : True,
                 'message' : "Successful",
                 'data' : serializer.data,#which the displays all the information contained in that todo model. ie. the todo written in that day
-            }
+                }
             
                
             return Response(data, status = status.HTTP_200_OK)
