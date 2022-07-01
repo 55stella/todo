@@ -188,8 +188,8 @@ def user_login(request):
 
 @swagger_auto_schema(methods=['PUT', 'DELETE'], request_body=UserSerializers())
 @api_view(['GET', 'PUT', 'DELETE'])
-@authentication_classes([BasicAuthentication])
-@permission_classes([IsAuthenticated])
+# @authentication_classes([BasicAuthentication])
+# @permission_classes([IsAuthenticated])
 def profile(request):
     """
     Takes in a student id and returns the http response depending on the http method.
