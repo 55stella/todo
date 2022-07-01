@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'account',
     'drf_yasg',
     'coreapi'
+    'corsheaders'
 ]
 
 MIDDLEWARE = [
@@ -60,6 +61,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware'
 ]
 
 ROOT_URLCONF = 'todos.urls'
@@ -157,7 +159,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.customUser'
 
 EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
-CORS_ORIGIN_WHITELIST =['https://dashboard.heroku.com/apps/stella-todosapp']
+CORS_ORIGIN_ALLOW_ALL = True
 
 EMAIL_HOST=os.getenv('EMAIL_HOST')
 EMAIL_PORT=2525
