@@ -157,6 +157,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'account.customUser'
 
 EMAIL_BACKEND= 'django.core.mail.backends.smtp.EmailBackend'
+CORS_ORIGIN_WHITELIST =['https://dashboard.heroku.com/apps/stella-todosapp']
 
 EMAIL_HOST=os.getenv('EMAIL_HOST')
 EMAIL_PORT=2525
