@@ -204,7 +204,8 @@ def profile(request):
     """
     
     # try:
-    user = User.objects.all()
+    user = User.objects.all(many=True)
+    # user = User.objects.get(id = request.user.id, is_active=True)
 
     #     # this would return a querry set.Not only a querry set, it would return the id of a logged in user
                                                
