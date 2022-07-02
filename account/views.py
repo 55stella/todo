@@ -203,16 +203,17 @@ def profile(request):
     DELETE: this logic deletes the students record from the database.
     """
     
-    try:
-        user = User.objects.get(id = request.user.id, is_active=True)
-        # this would return a querry set.Not only a querry set, it would return the id of a logged in user
+    # try:
+    user = User.objects.all()
+
+    #     # this would return a querry set.Not only a querry set, it would return the id of a logged in user
                                                
-    except User.DoesNotExist:
-            error ={
-                 "message": "failed",
-                 "error":f"profile  with id{id} does not exist"
-            }
-            return  Response(error, status=status.HTTP_400_BAD_REQUEST) 
+    # except User.DoesNotExist:
+    #         error ={
+    #              "message": "failed",
+    #              "error":f"profile  with id{id} does not exist"
+    #         }
+    #         return  Response(error, status=status.HTTP_400_BAD_REQUEST) 
     if request.method == 'GET':
         serializer = UserSerializers(user)
         data = {
