@@ -204,7 +204,7 @@ def profile(request):
     """
     
     # try:
-    user = User.objects.all(many=True)
+    user = User.objects.filter(is_active=True)
     # user = User.objects.get(id = request.user.id, is_active=True)
 
     #     # this would return a querry set.Not only a querry set, it would return the id of a logged in user
@@ -216,7 +216,7 @@ def profile(request):
     #         }
     #         return  Response(error, status=status.HTTP_400_BAD_REQUEST) 
     if request.method == 'GET':
-        serializer = UserSerializers(user)
+        serializer = UserSerializers(user, many=True)
         data = {
             "message":"sucess",
             "data":serializer.data
