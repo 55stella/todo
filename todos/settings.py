@@ -50,11 +50,9 @@ INSTALLED_APPS = [
     'drf_yasg',
     'coreapi',
     'corsheaders',
-    
 ]
 
 MIDDLEWARE = [
-
     'django.middleware.security.SecurityMiddleware',
     'corsheaders.middleware.CorsMiddleware',
     'whitenoise.middleware.WhiteNoiseMiddleware',#here we added whitenoise because of our static files
@@ -66,7 +64,10 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+
 ROOT_URLCONF = 'todos.urls'
+
+
 
 TEMPLATES = [
     {
@@ -84,7 +85,10 @@ TEMPLATES = [
     },
 ]
 
+
+
 WSGI_APPLICATION = 'todos.wsgi.application'
+
 
 
 
